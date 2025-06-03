@@ -7,7 +7,13 @@ const SPEED = 200
 @export var player_number: int = 0
 
 func _physics_process(delta: float) -> void:
-	look_at(get_global_mouse_position())
+	var window_size = get_window().size
+	if player_number == 0:
+		# Look to the right
+		look_at(Vector2(window_size.x, position.y))
+	elif player_number == 1:
+		# Look to the left
+		look_at(Vector2(0, position.y))
 
 	if player_number == 0:
 		velocity.x = Input.get_axis("left", "right") * SPEED
@@ -17,14 +23,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		var bullet = bullet_scene.instantiate()
 		bullet.global_position = shooty_part.global_position
-		bullet.direction = (get_global_mouse_position() - global_position).normalized()
+		bullet.direction = (shooty_part.global_position - global_position).normalized()
 		$/root/Game.add_child(bullet)
 
 	move_and_slide()
 
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
-	
-		if collision.get_collider().is_in_group("enemies") and not is_reloading:
+		if collision.get_collider().is_in_group("player") and not is_reloading:
+			print("Hit enemy! ", player_number)
 			is_reloading = true
 			get_tree().reload_current_scene()
