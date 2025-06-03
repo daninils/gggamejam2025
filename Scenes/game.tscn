@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6g5cweias4m8"]
+[gd_scene load_steps=11 format=3 uid="uid://b6g5cweias4m8"]
 
-[ext_resource type="PackedScene" uid="uid://q8v1rxk8erui" path="res://scenes/player.tscn" id="1_wg05u"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_xrg4b"]
+[ext_resource type="PackedScene" uid="uid://q8v1rxk8erui" path="res://Scenes/Player.tscn" id="1_wg05u"]
+[ext_resource type="Script" uid="uid://u2achgs8bue1" path="res://scripts/game.gd" id="1_xrg4b"]
 [ext_resource type="VideoStream" uid="uid://2uxwea4gjlwh" path="res://backgroundVideo.ogv" id="2_wrm1d"]
+[ext_resource type="Texture2D" uid="uid://tpjm5ebj8vqn" path="res://player1image.svg" id="4_wowpa"]
+[ext_resource type="Texture2D" uid="uid://b0hwinst5iyeg" path="res://player2image.svg" id="5_i6g32"]
 
 [sub_resource type="Environment" id="Environment_amyqu"]
 background_mode = 3
@@ -47,6 +49,9 @@ environment = SubResource("Environment_amyqu")
 [node name="Player1" parent="." instance=ExtResource("1_wg05u")]
 position = Vector2(145, 311)
 
+[node name="Sprite2D" type="Sprite2D" parent="Player1"]
+texture = ExtResource("4_wowpa")
+
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="Top" type="CollisionShape2D" parent="Walls"]
@@ -68,5 +73,8 @@ autostart = true
 
 [node name="Player2" parent="." instance=ExtResource("1_wg05u")]
 position = Vector2(1016, 315)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2"]
+texture = ExtResource("5_i6g32")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
