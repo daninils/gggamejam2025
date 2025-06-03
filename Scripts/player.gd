@@ -21,10 +21,21 @@ func _physics_process(delta: float) -> void:
 		velocity = lerp(get_real_velocity(), velocity, 0.1)
 	
 	if Input.is_action_just_pressed("shoot"):
-		var bullet = bullet_scene.instantiate()
-		bullet.global_position = shooty_part.global_position
-		bullet.direction = (shooty_part.global_position - global_position).normalized()
-		$/root/Game.add_child(bullet)
+		var mouse_pos = get_global_mouse_position()
+		var screen_width = get_viewport().get_visible_rect().size.x
+		var is_shooting = false
+		if mouse_pos.x < screen_width / 2:
+			is_shooting = player_number == 0
+			print("Mouse is on the left side!")
+		else:
+			is_shooting = player_number == 1
+			print("Mouse is on the right side!")
+		
+		if is_shooting:
+			var bullet = bullet_scene.instantiate()
+			bullet.global_position = shooty_part.global_position
+			bullet.direction = (shooty_part.global_position - global_position).normalized()
+			$/root/Game.add_child(bullet)
 
 	move_and_slide()
 
