@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6g5cweias4m8"]
+[gd_scene load_steps=9 format=3 uid="uid://bvnqhecljptxo"]
 
 [ext_resource type="PackedScene" uid="uid://q8v1rxk8erui" path="res://scenes/player.tscn" id="1_wg05u"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_xrg4b"]
-[ext_resource type="VideoStream" uid="uid://2uxwea4gjlwh" path="res://backgroundVideo.ogv" id="2_wrm1d"]
+[ext_resource type="Script" uid="uid://u2achgs8bue1" path="res://scripts/game.gd" id="1_xrg4b"]
+[ext_resource type="VideoStream" path="res://backgroundVideo.ogv" id="2_wrm1d"]
 
 [sub_resource type="Environment" id="Environment_amyqu"]
 background_mode = 3
