@@ -2,7 +2,7 @@ extends Node2D
 
 var enemy_scene = preload("res://scenes/enemy.tscn")
 
-@onready var player = $Player
+@onready var player = $Player1
 
 func _on_timer_timeout() -> void:
 	var enemy = enemy_scene.instantiate()
@@ -13,4 +13,4 @@ func _on_timer_timeout() -> void:
 		enemy.global_position.x = randi_range(0, get_viewport_rect().size.x)
 		enemy.global_position.y = randi_range(0, get_viewport_rect().size.y)
 
-	add_child(enemy)
+	#add_child(enemy)

@@ -44,8 +44,8 @@ color = Color(0, 0, 0, 0.878431)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_amyqu")
 
-[node name="Player" parent="." instance=ExtResource("1_wg05u")]
-position = Vector2(563, 342)
+[node name="Player1" parent="." instance=ExtResource("1_wg05u")]
+position = Vector2(145, 311)
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -65,5 +65,8 @@ shape = SubResource("WorldBoundaryShape2D_iddry")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="Player2" parent="." instance=ExtResource("1_wg05u")]
+position = Vector2(1016, 315)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
