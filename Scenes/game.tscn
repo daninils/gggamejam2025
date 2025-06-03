@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvnqhecljptxo"]
+[gd_scene load_steps=9 format=3 uid="uid://b6g5cweias4m8"]
 
-[ext_resource type="PackedScene" uid="uid://cwu3x5ciplkqh" path="res://scenes/player.tscn" id="1_wg05u"]
-[ext_resource type="Script" uid="uid://u2achgs8bue1" path="res://scripts/game.gd" id="1_xrg4b"]
+[ext_resource type="PackedScene" uid="uid://q8v1rxk8erui" path="res://scenes/player.tscn" id="1_wg05u"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_xrg4b"]
+[ext_resource type="VideoStream" uid="uid://2uxwea4gjlwh" path="res://backgroundVideo.ogv" id="2_wrm1d"]
 
 [sub_resource type="Environment" id="Environment_amyqu"]
 background_mode = 3
@@ -23,6 +24,22 @@ distance = -648.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_xrg4b")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = 1236.0
+offset_top = -51.0
+offset_right = 2316.0
+offset_bottom = 1869.0
+rotation = 1.5708
+scale = Vector2(0.7, 0.7)
+stream = ExtResource("2_wrm1d")
+autoplay = true
+loop = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1200.0
+offset_bottom = 681.0
+color = Color(0, 0, 0, 0.878431)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_amyqu")
